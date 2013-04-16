@@ -52,6 +52,7 @@ CREATE TABLE yunbbs_links (
 ) ENGINE=MyISAM ;
 
 INSERT INTO yunbbs_links VALUES(null,'YouBBS', 'http://youbbs.sinaapp.com');
+INSERT INTO yunbbs_links VALUES(null,'ACI字幕组', 'http://www.chineseaci.com');
 
 DROP TABLE IF EXISTS yunbbs_settings;
 CREATE TABLE yunbbs_settings (
