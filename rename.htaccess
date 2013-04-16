@@ -1,0 +1,44 @@
+# errordoc
+ErrorDocument 404 /404.html
+
+RewriteEngine on
+RewriteBase   /
+RewriteRule ^n-([0-9]+)(-([0-9]*))?$ nodepage.php?cid=$1&page=$3 [L]
+RewriteRule ^t-([0-9]+)(-([0-9]*))?$ topicpage.php?tid=$1&page=$3 [L]
+RewriteRule ^page/([0-9]+)$ indexpage.php?page=$1 [L]
+RewriteRule ^notifications$ notifications.php [L]
+RewriteRule ^favorites$ favorites.php [L]
+RewriteRule ^qqlogin$ qqlogin.php [L]
+RewriteRule ^qqcallback$ qqcallback.php [L]
+RewriteRule ^qqsetname$ qqsetname.php [L]
+RewriteRule ^wblogin$ wblogin.php [L]
+RewriteRule ^wbcallback$ wbcallback.php [L]
+RewriteRule ^wbsetname$ wbsetname.php [L]
+RewriteRule ^feed$ feed.php [L]
+RewriteRule ^robots.txt$ robots.php [L]
+RewriteRule ^sitemap-([0-9]+)$ sitemap.php?id=$1 [L]
+RewriteRule ^forgot$ forgot.php [L]
+RewriteRule ^upload-(650|590)$ upload.php?mw=$1 [L]
+RewriteRule ^viewat-(desktop|mobile)$ viewat.php?via=$1 [L]
+RewriteRule ^goto-t-([0-9]+)$ gototopic.php?tid=$1 [L]
+RewriteRule ^member/([a-zA-Z0-9\x80-\xff]{1,20})$ member.php?mid=$1 [L]
+RewriteRule ^newpost/([0-9]+)$ newpost.php?cid=$1 [L]
+RewriteRule ^admin-edit-post-([0-9]+)$ admin-edit-post.php?tid=$1 [L]
+RewriteRule ^admin-edit-comment-([0-9]+)$ admin-edit-comment.php?rid=$1 [L]
+RewriteRule ^admin-setuser-([0-9]+)$ admin-setuser.php?mid=$1 [L]
+RewriteRule ^admin-node(-([0-9]*))?$ admin-node.php?nid=$2 [L]
+RewriteRule ^admin-setting$ admin-setting.php [L]
+RewriteRule ^admin-user-([a-z]+)(-([0-9]*))?$ admin-user.php?act=$1&mid=$3 [L]
+RewriteRule ^admin-link-([a-z]+)(-([0-9]*))?$ admin-link.php?act=$1&lid=$3 [L]
+RewriteRule ^(login|sigin|logout|forgot|setting|install)$ $1.php [L]
+RewriteRule ^.*?templates 404.html [L]
+RewriteRule ^.*?avatar/$ 404.html [L]
+RewriteRule ^upload/([0-9]+/)?$ 404.html [L]
+RewriteRule ^.*?avatar/(large|normal|mini)/$ 404.html [L]
+
+#
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE image/png
+AddOutputFilterByType DEFLATE image/jpeg
