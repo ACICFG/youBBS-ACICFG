@@ -13,7 +13,7 @@ CREATE TABLE yunbbs_articles (
   closecomment tinyint(1) NOT NULL default '0',
   favorites int(10) unsigned NOT NULL default '0',
   visible tinyint(1) NOT NULL default '1',
-  top tinyint(1) NOT NULL default '1',
+  top tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY cid (cid),
   KEY edittime (edittime),
