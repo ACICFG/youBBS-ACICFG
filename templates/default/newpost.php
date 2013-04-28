@@ -33,6 +33,7 @@ echo '
 <p>
 <input type="text" name="title" value="',htmlspecialchars($p_title),'" class="sll" />
 </p>
+
 <p><textarea id="id-content" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
 if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');
@@ -40,7 +41,7 @@ if(!$options['close_upload']){
 echo '
 <p><div class="float-left"><input type="submit" value=" 发 表 " name="submit" class="textbtn" /></div><div class="c"></div></p>
 </form>
-
+<script type="text/javascript" src="http://weibotuchuang.sinaapp.com/bookmark.js"></script>
 </div>';
 
 

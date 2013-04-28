@@ -54,7 +54,7 @@ echo '
     <li>• 不欢迎灌水</li>
     <li>• 字数限制： 标题 < ',$options['article_title_max_len'],'，内容 < ',$options['article_content_max_len'],'</li>
     <li>• 纯文本格式，不支持html 或 ubb 代码</li>
-    <li>• 贴图： 可直接粘贴图片地址，<br/>如 http://www.baidu.com/xxx.gif <br/>支持jpg/gif/png后缀名，也可直接上传</li>
+    <li>• 贴图： 可直接粘贴图片地址，<br/>如 http://www.baidu.com/xxx.gif <br/>支持jpg/gif/png后缀名，<br/> 也可利用“围脖是个好图床”提供的通道，<br/>上传后直接粘贴地址</li>
     <li>• 贴视频： 可直接视频地址栏里的网址，<br/>如 http://www.tudou.com/programs/view/PAH86KJNoiQ/ <br/>仅支持土豆/优酷/QQ</li>
     <div class="c"></div>
     </ul>
