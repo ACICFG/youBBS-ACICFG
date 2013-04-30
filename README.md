@@ -17,6 +17,8 @@ We made some improvements:
 
 3.Allow users to edit their posts.
 
+And more...
+
 Install:
 ------------
 The same as the original one.
@@ -40,6 +42,8 @@ Original ver.        Our update
 Official BBS:http://youbbs.sinaapp.com/
 
 Our test website:http://www.acicfg.tk/
+
+Our official website: http://forum.chineseaci.com/
 
 For help. get in touch with us at www.chineseaci.com.
 
