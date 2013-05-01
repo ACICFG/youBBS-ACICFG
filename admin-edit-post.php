@@ -7,7 +7,7 @@ include(dirname(__FILE__) . '/common.php');
 if (!$cur_user || $cur_user['flag']<99) exit('error: 403 Access Denied');
 
 $tid = intval($_GET['tid']);
-$query = "SELECT id,cid,title,content,closecomment,visible,isred,isunderline,top FROM yunbbs_articles WHERE id='$tid'";
+$query = "SELECT id,cid,title,content,closecomment,visible,isred,top FROM yunbbs_articles WHERE id='$tid'";
 $t_obj = $DBS->fetch_one_array($query);
 if(!$t_obj){
     exit('404');
@@ -38,11 +38,6 @@ if($t_obj['isred']){
     $t_obj['isred'] = '';
 }
 
-if($t_obj['isunderline']){
-    $t_obj['isunderline'] = 'checked';
-}else{
-    $t_obj['isunderline'] = '';
-}
 
 
 // 获取1000个热点分类
@@ -69,7 +64,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $p_visible = intval($_POST['visible']);
     $p_top = intval($_POST['top']);
 	$p_isred = intval($_POST['isred']);
-    $p_isunderline = intval($_POST['isunderline']);
     
     
     if($p_title){
