@@ -14,6 +14,8 @@ CREATE TABLE yunbbs_articles (
   favorites int(10) unsigned NOT NULL default '0',
   visible tinyint(1) NOT NULL default '1',
   top tinyint(1) NOT NULL default '0',
+  isred tinyint(1) NOT NULL default '0',
+  isunderline tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY cid (cid),
   KEY edittime (edittime),
