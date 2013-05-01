@@ -35,22 +35,19 @@ if($page<0){
 // 获取最近文章列表
 if($page == 0) $page = 1;
 
-$query_sql = "SELECT a.id,a.uid,a.ruid,a.title,a.top,a.addtime,a.edittime,a.comments,u.avatar as uavatar,u.name as author,ru.name as rauthor,u.flag as flag
+$query_sql = "SELECT a.id,a.uid,a.ruid,a.title,a.top,a.isred,a.addtime,a.edittime,a.comments,u.avatar as uavatar,u.name as author,ru.name as rauthor,u.flag as flag
     FROM yunbbs_articles a 
     LEFT JOIN yunbbs_users u ON a.uid=u.id
-    LEFT JOIN yunbbs_users ru ON a.ruid=ru.id	
-		
-	    WHERE `visible` != '0'
-	
-    WHERE a.cid='".$cid."' ORDER BY `top` DESC ,edittime DESC LIMIT ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
+    LEFT JOIN yunbbs_users ru ON a.ruid=ru.id
+    WHERE a.cid='".$cid."'  AND `visible` != '0'
+    ORDER BY `top` DESC ,edittime DESC LIMIT ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
 $query = $DBS->query($query_sql);
 $articledb=array();
 while ($article = $DBS->fetch_array($query)) {
     // 格式化内容
-    if ($article['flag'] == '99') {
-        $article['title'] = "<strong><u>".$article['title']."</u></strong>";
-        }elseif($article['isred'] == '1'){
-         $article['title'] = "<font size=\"3\" color=\"red\">".$article['title']."</font>";} 
+if($article['isred'] == '1'){
+         $article['title'] = "<strong><u><font color=\"red\">".$article['title']."</font></u></strong>";
+     }
     $article['addtime'] = showtime($article['addtime']);
     $article['edittime'] = showtime($article['edittime']);
     $articledb[] = $article;

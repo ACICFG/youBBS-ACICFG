@@ -26,13 +26,11 @@ if($page<0){
 // 获取最近文章列表
 if($page == 0) $page = 1;
 
-$query_sql = "SELECT a.id,a.cid,a.uid,a.ruid,a.title,a.top,a.addtime,a.edittime,a.comments,c.name as cname,u.avatar as uavatar,u.name as author,ru.name as rauthor,u.flag as flag
-    FROM `yunbbs_articles` a 
-    LEFT JOIN `yunbbs_categories` c ON c.id=a.cid
-    LEFT JOIN `yunbbs_users` u ON a.uid=u.id
-    LEFT JOIN `yunbbs_users` ru ON a.ruid=ru.id
-	
-	    WHERE `visible` != '0'
+$query_sql = "SELECT a.id,a.uid,a.ruid,a.title,a.top,a.addtime,a.isred,a.edittime,a.comments,a.visible,u.avatar as uavatar,u.name as author,ru.name as rauthor,u.flag as flag
+    FROM yunbbs_articles a 
+    LEFT JOIN yunbbs_users u ON a.uid=u.id
+    LEFT JOIN yunbbs_users ru ON a.ruid=ru.id
+    WHERE `visible` != '0'
 	
     ORDER BY `top` DESC ,`edittime` DESC LIMIT ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
 $query = $DBS->query($query_sql);
