@@ -7,7 +7,7 @@ include(dirname(__FILE__) . '/common.php');
 if (!$cur_user || $cur_user['flag']<99) exit('error: 403 Access Denied');
 
 $tid = intval($_GET['tid']);
-$query = "SELECT id,cid,title,content,closecomment,visible,top FROM yunbbs_articles WHERE id='$tid'";
+$query = "SELECT id,cid,title,content,closecomment,visible,isred,isunderline,top FROM yunbbs_articles WHERE id='$tid'";
 $t_obj = $DBS->fetch_one_array($query);
 if(!$t_obj){
     exit('404');
@@ -32,7 +32,17 @@ if($t_obj['top']){
     $t_obj['top'] = '';
 }
 
+if($t_obj['isred']){
+    $t_obj['isred'] = 'checked';
+}else{
+    $t_obj['isred'] = '';
+}
 
+if($t_obj['isunderline']){
+    $t_obj['isunderline'] = 'checked';
+}else{
+    $t_obj['isunderline'] = '';
+}
 
 
 // 获取1000个热点分类
@@ -58,11 +68,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $p_closecomment = intval($_POST['closecomment']);
     $p_visible = intval($_POST['visible']);
     $p_top = intval($_POST['top']);
+	$p_isred = intval($_POST['isred']);
+    $p_isunderline = intval($_POST['isunderline']);
+    
     
     if($p_title){
         $p_title = htmlspecialchars($p_title);
         $p_content = htmlspecialchars($p_content);
-        $DBS->unbuffered_query("UPDATE yunbbs_articles SET cid='$p_cid',title='$p_title',content='$p_content',closecomment='$p_closecomment',visible='$p_visible',top='$p_top' WHERE id='$tid'");
+        $DBS->unbuffered_query("UPDATE yunbbs_articles SET cid='$p_cid',title='$p_title',content='$p_content',closecomment='$p_closecomment',visible='$p_visible',isred='$p_isred',top='$p_top',isunderline='$p_isunderline' WHERE id='$tid'");
         if($p_cid != $old_cid){
             $DBS->unbuffered_query("UPDATE yunbbs_categories SET articles=articles+1 WHERE id='$p_cid'");
             $DBS->unbuffered_query("UPDATE yunbbs_categories SET articles=articles-1 WHERE id='$old_cid'");

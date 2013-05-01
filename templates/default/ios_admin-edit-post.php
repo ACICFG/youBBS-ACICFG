@@ -29,7 +29,9 @@ if($tip){
 echo '
 <p><label><input type="checkbox" name="closecomment" value="1" ',$t_obj['closecomment'],'/> 关闭评论</label>
 <label><input type="checkbox" name="visible" value="1" ',$t_obj['visible'],'/> 显示帖子</label>
-<label><input type="checkbox" name="top" value="1" ',$t_obj['top'],'/> 置顶帖子</label></p>
+<label><input type="checkbox" name="top" value="1" ',$t_obj['top'],'/> 置顶帖子</label>
+<label><input type="checkbox" name="isred" value="1" ',$t_obj['isred'],'/> 加红帖子</label>
+<label><input type="checkbox" name="isunderline" value="1" ',$t_obj['isunderline'],'/> 加下划线</label></p>
 <p><input type="submit" value=" 保 存 " name="submit" class="textbtn" /></p>
 <p>
 <input type="text" name="title" value="',$p_title,'" class="sll wb96" />
