@@ -1,12 +1,12 @@
 V2UBBS
 =====================
-V2UBBS
+V2UBBS 1.1
 
 V2EX styled PHP forum basaed on YouBBS-ACI.
 
 
 -----
 
-Official BBS:http://youbbs.sinaapp.com/
+Original Official BBS: http://youbbs.sinaapp.com/
 
-Our test website:http://aci.7086.in/
+Test site: http://aci.7086.in/
