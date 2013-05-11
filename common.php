@@ -42,9 +42,9 @@ if (@get_magic_quotes_gpc()) {
 
 // 获取当前用户
 $cur_user = null;
-$cur_uid = $_COOKIE['cur_uid'];
-$cur_uname = $_COOKIE['cur_uname'];
-$cur_ucode = $_COOKIE['cur_ucode'];
+$cur_uid = isset($_COOKIE['cur_uid']) ? $_COOKIE['cur_uid'] : '';
+$cur_uname = isset($_COOKIE['cur_uname']) ? $_COOKIE['cur_uname'] : '';
+$cur_ucode = isset($_COOKIE['cur_ucode']) ? $_COOKIE['cur_ucode'] : '';
 
 if($cur_uname && $cur_uid && $cur_ucode){
     $u_key = 'u_'.$cur_uid;
@@ -274,4 +274,4 @@ function isemail($email) {
 	return strlen($email) > 6 && preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/", $email);
 }
 
-?>
+$cur_user_is_admin = isset($cur_user['flag']) && $cur_user['flag'] >= 99;
