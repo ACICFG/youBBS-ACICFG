@@ -1,13 +1,10 @@
 <?php
-define('IN_SAESPOT', 1);
 
-include(dirname(__FILE__) . '/config.php');
-include(dirname(__FILE__) . '/common.php');
+$opt = ['tid' => 0, 'page' => 0];
+$opt = array_merge($opt, $GLOBALS['pageopt']);
 
+extract($opt);
 
-$tid = intval($_GET['tid']);
-// 评论页数，默认是1
-$page = intval($_GET['page']);
 
 // 获取文章
 $query = "SELECT a.id,a.cid,a.uid,a.ruid,a.title,a.content,a.addtime,a.edittime,a.views,a.comments,a.closecomment,a.favorites,a.visible,u.avatar as uavatar,u.name as author

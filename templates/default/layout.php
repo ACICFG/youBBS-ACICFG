@@ -149,10 +149,15 @@ echo '
 </body>
 </html>';
 
+/*
 $_output = ob_get_contents();
 ob_end_clean();
 
 // 304
+// WHY we need this?
+// MD5 will take long time to run, and this page has token a long time to run.
+// Unless you are heavily stricted on bandwidth, or this code is meaningless.
+
 if(!$options['show_debug']){
     $etag = md5($_output);
     if($_SERVER['HTTP_IF_NONE_MATCH'] == $etag){
@@ -166,5 +171,6 @@ if(!$options['show_debug']){
 }
 
 echo $_output;
+*/
 
 ?>
