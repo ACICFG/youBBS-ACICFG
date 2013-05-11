@@ -274,4 +274,4 @@ function isemail($email) {
 	return strlen($email) > 6 && preg_match("/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/", $email);
 }
 
-?>
+$cur_user_is_admin = isset($cur_user['flag']) && $cur_user['flag'] >= 99;

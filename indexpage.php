@@ -1,26 +1,49 @@
 <?php
 
-$is_home_page = false;
-
-$opt = ['page' => 0];
+$opt = ['cid' => 0, 'page' => 0, 'cat' => []];
 $opt = array_merge($opt, $GLOBALS['pageopt']);
 
 extract($opt);
 
+if($cid)
+{
+    // Check if category exists
+    $cat = $DBS->fetch_one_array("SELECT * FROM `yunbbs_categories` WHERE `id` = $cid");
+    if(!$cat)
+    {
+        header('location: /');
+        exit;
+    }
+}
+
+
+$query_where = " `visible` != '0' ";
+if($cid)
+    $query_where .= " AND cid = '$cid' ";
+
 // Paging
-$total = $DBS->fetch_one("SELECT COUNT(*) FROM `yunbbs_articles`");
+$total = $DBS->fetch_one("SELECT COUNT(*) FROM `yunbbs_articles`
+    WHERE $query_where
+    ");
 $perpage = $options['list_shownum'];
 
 $totalpage = ceil($total / $perpage);
 
 if($page < 0 || $page == 1){
-    header('location: /');
+    if($cid)
+        header('location: /n-' . $cid);
+    else
+        header('location: /');
     exit;
 }
 if($page > $totalpage){
-    header('location: /page/'.$totalpage);
+    if($cid)
+        header('location: /n-' . $cid . '-' . $totalpage);
+    else
+        header('location: /page/'.$totalpage);
     exit;
 }
+
 if($page == 0) $page = 1;
 
 $query_limit = $page == 1 ? $perpage : (($page - 1) * $perpage) . ',' . $perpage;
@@ -30,10 +53,10 @@ $query_sql = "SELECT a.*,c.name as cname,u.avatar as uavatar,u.name as author,ru
     LEFT JOIN yunbbs_categories c ON c.id=a.cid
     LEFT JOIN yunbbs_users u ON a.uid=u.id
     LEFT JOIN yunbbs_users ru ON a.ruid=ru.id
-        WHERE `visible` != '0'
+    WHERE $query_where
     ORDER BY `top` DESC ,`edittime` DESC LIMIT " . $query_limit;
 $query = $DBS->query($query_sql);
-$articledb=array();
+$articledb = [];
 while ($article = $DBS->fetch_array($query)) {
      if($article['isred'] == '1'){
          $article['title'] = $article['title']."<img src=\"/static/default/img/newisred.GIF\" alt=\"精品\" class=\"topic-title-img\">";
@@ -70,12 +93,13 @@ if($page > 1)
 $links = get_links();
 
 if($options['site_des']){
-    $meta_des = htmlspecialchars(mb_substr($options['site_des'], 0, 150, 'utf-8')).' - page '.$page;
+    if($cid)
+        $meta_des = $cat['name'] . ' - ' . mb_substr($cat['about'], 0, 150, 'utf-8');
+    else
+        $meta_des = mb_substr($options['site_des'], 0, 150, 'utf-8');
+    $meta_des = htmlspecialchars($meta_des) .' - page '.$page;
 }
 
-if($page == 1)
-$pagefile = dirname(__FILE__) . '/templates/default/'.$tpl.'home.php';
-else
 $pagefile = dirname(__FILE__) . '/templates/default/'.$tpl.'indexpage.php';
 
 include(dirname(__FILE__) . '/templates/default/'.$tpl.'layout.php');

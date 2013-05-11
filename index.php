@@ -7,12 +7,23 @@ include(dirname(__FILE__) . '/common.php');
 # This would be the router of the system.
 
 $path = $_SERVER['REQUEST_URI'];
+
+// Filter any possible args
+if(strpos($path, '?') !== false)
+    $path = strstr($path, '?', true);
+
 $pagefile = 'indexpage';
 $pageopt = [];
 $viewopt = [];
-if(preg_match('~^/(?:page/(\d+))?~', $path, $m))
+if(preg_match('~^/(?:page/(\d+))?$~', $path, $m))
 {
     $pageopt['page'] = isset($m[1]) ? intval($m[1]) : 0;
+    $pagefile = 'indexpage';
+}
+elseif(preg_match('~^/n-(\d+)(?:-(\d+))?$~', $path, $m))
+{
+    $pageopt['cid'] = isset($m[1]) ? intval($m[1]) : 0;
+    $pageopt['page'] = isset($m[2]) ? intval($m[2]) : 0;
     $pagefile = 'indexpage';
 }
 
