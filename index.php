@@ -15,7 +15,15 @@ if(strpos($path, '?') !== false)
 $pagefile = 'indexpage';
 $pageopt = [];
 $viewopt = [];
-if(preg_match('~^/(?:page/(\d+))?$~', $path, $m))
+
+// match static address
+$static_pages = ['/notifications', '/favorites', '/qqlogin', '/qqcallback', '/qqsetname', '/feed', '/robots', '/forgot'];
+if(in_array($path, $static_pages))
+{
+    $pagefile = substr($path, 1);
+}
+// match dynamic address
+elseif(preg_match('~^/(?:page/(\d+))?$~', $path, $m))
 {
     $pageopt['page'] = isset($m[1]) ? intval($m[1]) : 0;
     $pagefile = 'indexpage';
@@ -26,6 +34,13 @@ elseif(preg_match('~^/n-(\d+)(?:-(\d+))?$~', $path, $m))
     $pageopt['page'] = isset($m[2]) ? intval($m[2]) : 0;
     $pagefile = 'indexpage';
 }
+elseif(preg_match('~^/t-(\d+)(?:-(\d+))?$~', $path, $m))
+{
+    $pageopt['tid'] = isset($m[1]) ? intval($m[1]) : 0;
+    $pageopt['page'] = isset($m[2]) ? intval($m[2]) : 0;
+    $pagefile = 'topicpage';
+}
+
 
 if(empty($pagefile))
     $pagefile = 'indexpage';
