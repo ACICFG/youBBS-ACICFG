@@ -1,11 +1,16 @@
 <?php 
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 
+if($page == 0)
+    $top_hint = '第' . $page . '页 / 共' . $totalpage . '页</div>';
+else
+    $top_hint = '最近更新 • <a href="/feed">Atom Feed</a>';
 echo '
 <div class="title">
     <div class="float-left fs14">
-        <a href="/">',$options['name'],'</a> &raquo; 第',$page,'页 / 共',$taltol_page,'页</div>';
-        
+        <a href="/">',$options['name'],'</a> &raquo; ', $top_hint, '
+    </div>';
+
 if($cur_user && $cur_user['flag']>4){
     echo '<div class="float-right"><a href="/newpost/1" rel="nofollow" class="newpostbtn">+发新帖</a></div>';
 }
@@ -48,23 +53,33 @@ echo '    <div class="c"></div>
 
 }
 
-if($taltol_article > $options['list_shownum']){ 
 echo '<div class="pagination">
-
-
-
 ';
 if($page>1){
 echo '<a href="/page/',$page-1,'" class="float-left">&laquo; 上一页</a>';
 }
-if($page<$taltol_page){
+if($page<$totalpage){
 echo '<a href="/page/',$page+1,'" class="float-right">下一页 &raquo;</a>';
 }
 echo '<div class="c"></div>
 </div>';
-}
 
 
 echo '</div>';
+
+if(isset($bot_nodes)){
+echo '
+<div class="title">热门分类</div>
+<div class="main-box main-box-node">
+<span class="btn">';
+foreach( $bot_nodes as $k=>$v ){
+    echo '<a href="/',$k,'">',$v,'</a>';
+}
+echo '
+</span>
+<div class="c"></div>
+
+</div>';
+}
 
 ?>
