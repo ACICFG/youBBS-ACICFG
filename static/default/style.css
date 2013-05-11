@@ -41,11 +41,11 @@ a:hover {color: #bd0a01;text-decoration: underline;}
 
 img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 
-.header-wrap {width:100%;min-width:960px;height:48px;color:#FFF;background: #000 url("img/bg_header.png") repeat-x bottom center;padding: 5px 0;-webkit-box-shadow:2px 2px 5px rgba(0, 0, 0, 0.4);}
-    .header {width:960px;margin:0 auto;color:#666;vertical-align: middle;font-size: 15px;line-height:19px;font-weight: 500;}
+.header-wrap {width:100%;min-width:960px;height:44px;color:#FFF;background: #000 url("img/top.png") repeat-x bottom center;-webkit-box-shadow:2px 2px 5px rgba(0, 0, 0, 0.4);}
+    .header {width:960px;margin:0 auto;color:#666;vertical-align: middle;font-size: 15px;line-height:17px;font-weight: 500;}
     .header a {color:#CCC;text-decoration:none;}
     .header a:hover {color:#FFF;text-decoration:none;}
-        .logo {display:block;float:left;font-size:36px;line-height:40px;font-family:Arial, "宋体",Helvetica, sans-serif;}
+        .logo {display:block;float:left;font-size:34px;line-height:40px;font-family:Arial, "宋体",Helvetica, sans-serif;}
         .logo a {text-decoration: none;color: #ccc;text-shadow: #000 0 0 20px;-webkit-transition: color 0.25s linear;}
         .logo a:hover,
         .logo a:focus,
@@ -56,7 +56,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
         .banner img{vertical-align: middle;}
         .avatar-mini {max-height:24px;max-width:24px;}
 
-.main-wrap {min-height:75%;height: auto !important;height: 75%;width:100%;min-width:960px;background-color:#CCC;padding:20px 0 20px 0;}
+.main-wrap {min-height:75%;height: auto !important;height: 75%;width:100%;min-width:960px;background:#CCC url("img/bg.PNG");background-repeat: repeat-xy;padding:20px 0 20px 0;}
     .main {width:960px;margin:0 auto;}
         .main-content {float:left;width:670px;}
             .tiptitle {margin:0 auto;width:80%;margin-bottom:10px;border-bottom:2px solid #CCC;padding:10px;color:#CCC;font-size:12px;background-color:#000;border-radius:5px;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);}
@@ -69,6 +69,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
                 .topic-title {margin-bottom:10px;}
                 .topic-title-main {max-width:560px;}
                 .topic-title h1 {margin-bottom:10px;font-size:21px;font-weight: 500;line-height: 150%;color:#333;WORD-WRAP: break-word;}
+                .topic-title-img{position:relative; top: 3px;}
                 .topic-title-date {font-size:12px;color:#999;border-bottom: 1px solid #EFEFEF;padding-bottom:8px;}
                 .topic-title-date a {color:#A0A0A0;font-weight:bold;}
                 .topic-title-date a:hover {color:#707070;}

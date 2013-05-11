@@ -23,6 +23,7 @@ if($options['main_nodes']){
 }
 echo '
      - 发新帖
+
 </div>
 
 <div class="main-box">';
@@ -35,7 +36,7 @@ echo '
 <input type="text" name="title" value="',htmlspecialchars($p_title),'" class="sll" />
 </p>
 
-<p><textarea  id="id-content" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
+<p><textarea   id="id-content" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
 if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');
 }
@@ -44,7 +45,7 @@ echo '
 
 
 </form>
-<script type="text/javascript" src="http://weibotuchuang.sinaapp.com/bookmark.js"></script>
+<script type="text/javascript" src="/static/js/bookmark.js"></script>
 
 
 

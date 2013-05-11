@@ -40,7 +40,7 @@ a:hover {color: #bd0a01;text-decoration: underline;}
 
 img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 
-.header-wrap {width:100%;height:48px;color:#FFF;background: #000 url("img/bg_header.png") repeat-x bottom center;padding: 5px 0;}
+.header-wrap {width:100%;height:44px;color:#FFF;background: #000 url("img/top.png") repeat-x bottom center;padding: 0px 0;}
     .header {width:100%;margin:0 auto;color:#666;vertical-align: middle;font-size: 15px;line-height:19px;font-weight: 500;}
     .header a {color:#CCC;text-decoration:none;}
     .header a:hover {color:#FFF;text-decoration:none;}
@@ -64,6 +64,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
                 .home-box-list {padding:10px 0 15px 0;}
                 .topic-title {margin-bottom:10px;}
                 .topic-title-main {width:81%;}
+                .topic-title-img{position:relative; top: 3px;}
                 .topic-title h1 {margin-bottom:10px;font-size:20px;font-weight: 500;line-height: 150%;color:#333;WORD-WRAP: break-word;}
                 .topic-title-date {font-size:12px;color:#999;border-bottom: 1px solid #EFEFEF;padding-bottom:8px;}
                 .topic-title-date a {color:#A0A0A0;font-weight:bold;}
