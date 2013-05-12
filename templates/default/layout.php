@@ -2,8 +2,8 @@
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 ob_start();
 
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+echo '<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>',$title,'</title>
@@ -13,7 +13,6 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link href="/feed" rel="alternate" title="',htmlspecialchars($options['name']),' - ATOM Feed" type="application/atom+xml"/>
 <script src="',$options['jquery_lib'],'" type="text/javascript"></script>
-<link rel="top" title="Back to Top" href="#" />
 ';
 if($options['head_meta']){
     echo $options['head_meta'];
@@ -31,7 +30,7 @@ echo '
 <body>
 <div class="header-wrap">
     <div class="header">
-        <div class="logo"><a href="/" name="top">',htmlspecialchars($options['name']),'</a></div>
+        <div class="logo"><a href="/" id="top">',htmlspecialchars($options['name']),'</a></div>
         <div class="scbox">
 <script type="text/javascript">
     var dispatch = function() {
@@ -133,7 +132,7 @@ echo '    </div>
 
 <script src="/static/js/jquery.lazyload.min.js" type="text/javascript" charset="utf-8"></script>
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
 $(function() {
     $(".main-box img").lazyload({
         //placeholder : "/static/grey.gif",
@@ -150,10 +149,15 @@ echo '
 </body>
 </html>';
 
+/*
 $_output = ob_get_contents();
 ob_end_clean();
 
 // 304
+// WHY we need this?
+// MD5 will take long time to run, and this page has token a long time to run.
+// Unless you are heavily stricted on bandwidth, or this code is meaningless.
+
 if(!$options['show_debug']){
     $etag = md5($_output);
     if($_SERVER['HTTP_IF_NONE_MATCH'] == $etag){
@@ -167,5 +171,6 @@ if(!$options['show_debug']){
 }
 
 echo $_output;
+*/
 
 ?>

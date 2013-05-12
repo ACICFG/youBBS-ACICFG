@@ -1,8 +1,4 @@
 <?php
-define('IN_SAESPOT', 1);
-
-include(dirname(__FILE__) . '/config.php');
-include(dirname(__FILE__) . '/common.php');
 
 if($options['authorized'] || $options['close']){
     exit('error: 403 Access Denied');

@@ -1,18 +1,35 @@
 <?php 
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 
+if($cid)
+    $top_hint = $cat['name'] . '(' . $total . ')';
+elseif($page > 1)
+    $top_hint = '第' . $page . '页 / 共' . $totalpage . '页';
+else
+    $top_hint = '最近更新 • <a href="/feed">Atom Feed</a>';
+
+if($cid && $cur_user_is_admin)
+    $top_hint .= ' • <a href="/admin-node-' . $cat['id'] . '#edit">编辑</a>';
+
+$newpost_cid = $cid ? $cid : 1;
+
 echo '
 <div class="title">
     <div class="float-left fs14">
-        <a href="/">',$options['name'],'</a> &raquo; 第',$page,'页 / 共',$taltol_page,'页</div>';
-        
+        <a href="/">',$options['name'],'</a> &raquo; ', $top_hint, '
+    </div>';
+
 if($cur_user && $cur_user['flag']>4){
-    echo '<div class="float-right"><a href="/newpost/1" rel="nofollow" class="newpostbtn">+发新帖</a></div>';
+    echo '<div class="float-right"><a href="/newpost/',$newpost_cid,'" rel="nofollow" class="newpostbtn">+发新帖</a></div>';
 }
 echo '    <div class="c"></div>
 </div>
 
 <div class="main-box home-box-list">';
+
+if($cid && $cat['about']){
+    echo '<div class="post-list grey"><p>',$cat['about'],'</p></div>';
+}
 
 foreach($articledb as $article){
 echo '
@@ -48,23 +65,37 @@ echo '    <div class="c"></div>
 
 }
 
-if($taltol_article > $options['list_shownum']){ 
+if($totalpage > 1)
+{
 echo '<div class="pagination">
-
-
-
 ';
+$pageprefix = $cid ? '/n-' . $cid . '-' : '/page/';
+
 if($page>1){
-echo '<a href="/page/',$page-1,'" class="float-left">&laquo; 上一页</a>';
+echo '<a href="',$pageprefix,$page-1,'" class="float-left">&laquo; 上一页</a>';
 }
-if($page<$taltol_page){
-echo '<a href="/page/',$page+1,'" class="float-right">下一页 &raquo;</a>';
+if($page<$totalpage){
+echo '<a href="',$pageprefix,$page+1,'" class="float-right">下一页 &raquo;</a>';
 }
 echo '<div class="c"></div>
 </div>';
 }
 
-
 echo '</div>';
+
+if(isset($bot_nodes)){
+echo '
+<div class="title">热门分类</div>
+<div class="main-box main-box-node">
+<span class="btn">';
+foreach( $bot_nodes as $k=>$v ){
+    echo '<a href="/',$k,'">',$v,'</a>';
+}
+echo '
+</span>
+<div class="c"></div>
+
+</div>';
+}
 
 ?>

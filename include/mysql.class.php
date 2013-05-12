@@ -79,6 +79,11 @@ class DB_MySQL  {
         return $record;
     }
 
+    function fetch_one($query) {
+        $record = $this->fetch_one_array($query);
+        return current($record);
+    }
+
     function num_rows($query) {
         $query = mysql_num_rows($query);
         return $query;
