@@ -13,11 +13,11 @@ if(strpos($path, '?') !== false)
     $path = strstr($path, '?', true);
 
 $pagefile = 'indexpage';
-$pageopt = [];
-$viewopt = [];
+$pageopt = array();
+$viewopt = array();
 
 // match static address
-$static_pages = ['/notifications', '/favorites', '/qqlogin', '/qqcallback', '/qqsetname', '/feed', '/robots', '/forgot'];
+$static_pages = array('/notifications', '/favorites', '/qqlogin', '/qqcallback', '/qqsetname', '/feed', '/robots', '/forgot');
 if(in_array($path, $static_pages))
 {
     $pagefile = substr($path, 1);

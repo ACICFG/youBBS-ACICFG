@@ -1,6 +1,6 @@
 <?php
 
-$opt = ['tid' => 0, 'page' => 0];
+$opt = array('tid' => 0, 'page' => 0);
 $opt = array_merge($opt, $GLOBALS['pageopt']);
 
 extract($opt);
@@ -199,4 +199,3 @@ $pagefile = dirname(__FILE__) . '/templates/default/'.$tpl.'postpage.php';
 
 include(dirname(__FILE__) . '/templates/default/'.$tpl.'layout.php');
 
-?>

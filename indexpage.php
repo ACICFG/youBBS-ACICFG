@@ -1,6 +1,6 @@
 <?php
 
-$opt = ['cid' => 0, 'page' => 0, 'cat' => []];
+$opt = array('cid' => 0, 'page' => 0, 'cat' => array());
 $opt = array_merge($opt, $GLOBALS['pageopt']);
 
 extract($opt);
@@ -56,7 +56,7 @@ $query_sql = "SELECT a.*,c.name as cname,u.avatar as uavatar,u.name as author,ru
     WHERE $query_where
     ORDER BY `top` DESC ,`edittime` DESC LIMIT " . $query_limit;
 $query = $DBS->query($query_sql);
-$articledb = [];
+$articledb = array();
 while ($article = $DBS->fetch_array($query)) {
      if($article['isred'] == '1'){
          $article['title'] = $article['title']."<img src=\"/static/default/img/newisred.GIF\" alt=\"精品\" class=\"topic-title-img\">";
