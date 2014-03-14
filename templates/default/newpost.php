@@ -45,14 +45,6 @@ echo '
 
 
 </form>
-<script type="text/javascript" src="/static/js/bookmark.js"></script>
-
-
-
-
-
-
-
 
 </div>';
 

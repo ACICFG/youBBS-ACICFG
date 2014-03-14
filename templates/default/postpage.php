@@ -1,4 +1,5 @@
 <?php 
+
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 
 echo '
@@ -63,7 +64,7 @@ echo '    </a></div>
 
 if($t_obj['comments']){
 echo '
-<div class="title">
+<div class="title" id=comments>
     ',$t_obj['comments'],' 回复  |  直到 ',$t_obj['edittime'],'
 </div>
 <div class="main-box home-box-list">';
@@ -111,10 +112,10 @@ echo '                <span class="commonet-count">',$count_n,'</span></div>
 if($t_obj['comments'] > $options['commentlist_num']){ 
 echo '<div class="pagination">';
 if($page>1){
-echo '<a href="/t-',$tid,'-',$page-1,'" class="float-left">&laquo; 上一页</a>';
+echo '<a href="/t-',$tid,'-',$page-1,'#comments" class="float-left">&laquo; 上一页</a>';
 }
 if($page<$taltol_page){
-echo '<a href="/t-',$tid,'-',$page+1,'" class="float-right">下一页 &raquo;</a>';
+echo '<a href="/t-',$tid,'-',$page+1,'#comments" class="float-right">下一页 &raquo;</a>';
 }
 echo '<div class="c"></div>
 </div>';
