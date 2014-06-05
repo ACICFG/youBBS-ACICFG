@@ -1,5 +1,6 @@
 <?php 
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
+echo '<div class="sider-container" data-spy="affix" data-offset-top="44" data-offset-bottom="151" >';
 
 if($cur_user && $cur_user['flag']>=99){
 echo '
@@ -120,6 +121,6 @@ foreach($site_infos as $k=>$v){
 echo '    </ul>
     <div class="c"></div>
     </div>
-</div>';
+</div></div>';
 } 
 ?>
