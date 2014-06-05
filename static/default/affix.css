@@ -1,7 +1,3 @@
 .sider-container{width:270px;}
 .sider-container.affix{position: fixed; top:20px;}
-<<<<<<< HEAD
 .sider-container.affix-bottom{position:absolute;}
-=======
-.sider-container.affix-bottom{position:absolute;}
->>>>>>> be514e679779399f3d287ae34d0681cf63f0a48f

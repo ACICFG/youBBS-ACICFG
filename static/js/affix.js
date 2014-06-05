@@ -122,5 +122,4 @@
       $spy.affix(data)
     })
   })
-
 }(jQuery);
