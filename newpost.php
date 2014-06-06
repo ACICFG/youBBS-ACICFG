@@ -112,6 +112,9 @@ $title = '发新帖子';
 $img_max_w = 650;
 $newpost_page = '1';
 
+$p_title = stripslashes($p_title);
+$p_content = stripslashes($p_title);
+
 $pagefile = dirname(__FILE__) . '/templates/default/'.$tpl.'newpost.php';
 
 include(dirname(__FILE__) . '/templates/default/'.$tpl.'layout.php');
