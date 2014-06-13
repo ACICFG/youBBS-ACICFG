@@ -33,19 +33,21 @@ if($tip){
 echo '
 
 <p>
-<input type="text" name="title" value="',htmlspecialchars($p_title),'" class="sll" />
+<input type="text" name="title" value="',htmlspecialchars($p_title),'" class="sll" id="id-post-title" />
 </p>
 
+<div class="float-right" id="id-post-autosave">自动保存正在初始化...</div>
 <p><textarea   id="id-content" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
 if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');
 }
 echo '
-<p><div class="float-left"><input type="submit" value=" 发 表 " id="submit"  name="submit" class="textbtn" /></div><div class="c"></div></p>
+<p><div class="float-left"><input type="submit" value=" 发 表 " id="submit"  name="submit" class="textbtn" id="id-post-submit" /></div><div class="c"></div></p>
 
 
 </form>
 
+<script src="/static/js/postsave.js" type="text/javascript"></script>
 </div>';
 
 
