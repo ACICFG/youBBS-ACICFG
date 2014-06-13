@@ -159,6 +159,7 @@ if($tip){
 }
 echo '    <form action="',$_SERVER["REQUEST_URI"],'#new-comment" method="post">
 <input type="hidden" name="formhash" value="',$formhash,'" />
+    <div class="float-right" id="id-post-autosave">自动保存正在初始化...</div>
     <p><textarea id="id-content" name="content" class="comment-text mll">',htmlspecialchars($c_content),'</textarea></p>';
 
 if(!$options['close_upload']){
@@ -167,12 +168,13 @@ if(!$options['close_upload']){
 
 echo '
     <p>
-    <div class="float-left"><input type="submit" value=" 提 交 " name="submit" class="textbtn" /></div>
+    <div class="float-left"><input type="submit" value=" 提 交 " name="submit" class="textbtn" id="id-post-submit" /></div>
     <div class="float-right fs12 grey">请尽量让自己的回复能够对别人有帮助</div>
     <div class="c"></div> 
     </p>
     </form>
 </div>
+<script src="/static/js/postsave.js" type="text/javascript"></script>
 <!-- new comment end -->';
 
 }else{
