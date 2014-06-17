@@ -75,7 +75,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
                 .topic-title-date a:hover {color:#707070;}
                 .detail-avatar {width:73px;height:73px;float:right;}
                 .detail-avatar img {border-radius: 4px;}
-                .topic-content {WORD-WRAP: break-word;}
+                .topic-content {WORD-WRAP: break-word;padding-left: 20px;}
                 .topic-content img {display:block;margin-top:10px;max-width:650px;}
                 .topic-content embed {display:block;margin-top:10px;max-width:590px;}
                 .post-list {border-bottom: 1px solid #EFEFEF;padding:0 10px 0 10px;margin-bottom:10px;background: url("img/bg_item.png") repeat-x bottom center;}
@@ -165,3 +165,196 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 .w500 {width:500px;}
 
 .h60 {height:60px;}
+
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://markitup.jaysalvat.com/
+// ------------------------------------------------------------------*/
+#markItUpMarkdown {width: 99%}
+#markdown {width: 93%}
+
+.markItUp .markItUpButton1 a {
+	background-image:url("../images/markdown/h1.png"); 
+}
+.markItUp .markItUpButton2 a {
+	background-image:url("../images/markdown/h2.png"); 
+}
+.markItUp .markItUpButton3 a {
+	background-image:url("../images/markdown/h3.png"); 
+}
+.markItUp .markItUpButton4 a {
+	background-image:url("../images/markdown/h4.png"); 
+}
+.markItUp .markItUpButton5 a {
+	background-image:url("../images/markdown/h5.png"); 
+}
+.markItUp .markItUpButton6 a {
+	background-image:url("../images/markdown/h6.png"); 
+}
+
+.markItUp .markItUpButton7 a {
+	background-image:url("../images/markdown/bold.png");
+}
+.markItUp .markItUpButton8 a {
+	background-image:url("../images/markdown/italic.png");
+}
+
+.markItUp .markItUpButton9 a {
+	background-image:url("../images/markdown/list-bullet.png");
+}
+.markItUp .markItUpButton10 a {
+	background-image:url("../images/markdown/list-numeric.png");
+}
+
+
+.markItUp .markItUpButton11 a	{
+	background-image:url("../images/markdown/quotes.png");
+}
+.markItUp .markItUpButton12 a	{
+	background-image:url("../images/markdown/code.png");
+}
+
+.markItUp .save a {
+	background-image:url("../images/markdown/disk-save.png");
+}
+.markItUp .load a {
+	background-image:url("../images/markdown/disk-load.png");
+}
+
+.markItUp * {
+	margin:0px; padding:0px;
+	outline:none;
+}
+.markItUp a:link,
+.markItUp a:visited {
+	color:#000;
+	text-decoration:none;
+}
+.markItUp  {
+	width:700px;
+	margin:5px 0 5px 0;
+	border:5px solid #F5F5F5;	
+}
+.markItUpContainer  {
+	border:1px solid #3C769D;	
+	background:#FFF url("/../static/images/markdown/bg-container.png") repeat-x top left;
+	padding:5px 5px 2px 5px;
+	font:11px Verdana, Arial, Helvetica, sans-serif;
+}
+.markItUpEditor {
+	font:12px 'Courier New', Courier, monospace;
+	padding:5px 5px 5px 35px;
+	border:3px solid #3C769D;
+	width:643px;
+	height:320px;
+	background:#FFF url("/../static/images/markdown/bg-editor.png") no-repeat;
+	clear:both;
+	line-height:18px;
+	overflow:auto;
+}
+.markItUpPreviewFrame	{
+	overflow:auto;
+	background-color:#FFFFFF;
+	border:1px solid #3C769D;
+	width:99.9%;
+	height:300px;
+	margin:5px 0;
+}
+.markItUpFooter {
+	width:100%;
+	cursor:n-resize;
+}
+.markItUpResizeHandle {
+	overflow:hidden;
+	width:22px; height:5px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url("/../static/images/markdown/handle.png");
+	cursor:n-resize;
+}
+/***************************************************************************************/
+/* first row of buttons */
+.markItUpHeader ul li	{
+	list-style:none;
+	float:left;
+	position:relative;
+}
+.markItUpHeader ul li ul{
+	display:none;
+}
+.markItUpHeader ul li:hover > ul{
+	display:block;
+}
+.markItUpHeader ul .markItUpDropMenu {
+	background:transparent url("/../static/images/markdown/menu.png") no-repeat 115% 50%;
+	margin-right:5px;
+}
+.markItUpHeader ul .markItUpDropMenu li {
+	margin-right:0px;
+}
+.markItUpHeader ul .markItUpSeparator {
+	margin:0 10px;
+	width:1px;
+	height:16px;
+	overflow:hidden;
+	background-color:#CCC;
+}
+.markItUpHeader ul ul .markItUpSeparator {
+	width:auto; height:1px;
+	margin:0px;
+}
+/* next rows of buttons */
+.markItUpHeader ul ul {
+	display:none;
+	position:absolute;
+	top:18px; left:0px;	
+	background:#F5F5F5;
+	border:1px solid #3C769D;
+	height:inherit;
+}
+.markItUpHeader ul ul li {
+	float:none;
+	border-bottom:1px solid #3C769D;
+}
+.markItUpHeader ul ul .markItUpDropMenu {
+	background:#F5F5F5 url("/../images/markdown/submenu.png") no-repeat 100% 50%;
+}
+/* next rows of buttons */
+.markItUpHeader ul ul ul {
+	position:absolute;
+	top:-1px; left:150px;
+}
+.markItUpHeader ul ul ul li {
+	float:none;
+}
+.markItUpHeader ul a {
+	display:block;
+	width:16px; height:16px;
+	text-indent:-10000px;
+	background-repeat:no-repeat;
+	padding:3px;
+	margin:0px;
+}
+.markItUpHeader ul ul a {
+	display:block;
+	padding-left:0px;
+	text-indent:0;
+	width:120px; 
+	padding:5px 5px 5px 25px;
+	background-position:2px 50%;
+}
+.markItUpHeader ul ul a:hover  {
+	color:#FFF;
+	background-color:#3C769D;
+}
+/***************************************************************************************/
+.markdown .markItUpEditor {
+	background-image:url("/../static/images/markdown/bg-editor-markdown.png");
+}
+/***************************************************************************************/
+.markItUp .save a {
+	background-image:url("/../static/images/markdown//disk-save.png");
+}
+.markItUp .load a {
+	background-image:url("/../static/images/markdown/disk-load.png");
+}

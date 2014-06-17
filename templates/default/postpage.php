@@ -54,7 +54,9 @@ echo '    </a></div>
 </div>
 <div class="topic-content">
 ',$options['ad_post_top'],'
-<p>',$t_obj['content'],'</p>
+<p>';     
+echo $t_obj['content'];
+echo '</p>
 ',$options['ad_post_bot'],'
 <div class="topic-title-date"></div>
 </div>
@@ -88,12 +90,11 @@ echo '</a></div>
             
             <div class="commont-data-date">
                 <div class="float-left"><a href="/member/',$comment['uid'],'">',$comment['author'],'</a> at ',$comment['addtime'];
-if($cur_user && $cur_user['flag']>=99){
+				if($cur_user && $cur_user['flag']>=99){
     echo ' &nbsp;&nbsp;&nbsp; • <a href="/admin-edit-comment-',$comment['id'],'">编辑</a>';
-
-    echo ' &nbsp;&nbsp;&nbsp; • <a href="/admin-edit-comment-',$comment['id'],'">删除/a>';
-
-
+}
+if($cur_user && $cur_user['flag']>4 && $cur_user['flag']<99 && $cur_user['name'] == $comment['author']){
+    echo ' &nbsp;&nbsp;&nbsp; • <a href="/user-edit-comment-',$comment['id'],'">编辑</a>';
 }
                 echo '</div>
                 <div class="float-right">';
@@ -159,7 +160,17 @@ if($tip){
 }
 echo '    <form action="',$_SERVER["REQUEST_URI"],'#new-comment" method="post">
 <input type="hidden" name="formhash" value="',$formhash,'" />
-    <p><textarea id="id-content" name="content" class="comment-text mll">',htmlspecialchars($c_content),'</textarea></p>';
+    <p><textarea id="markdown" name="content" class="comment-text mll">',htmlspecialchars($c_content),'</textarea></p>
+	<script src="/static/js/jquery-1.6.4.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.markitup.js" type="text/javascript"></script>
+	<script src="/static/js/set.js" type="text/javascript"></script>
+	<script type="text/javascript" >
+	   $(document).ready(function() {
+	      $("#markdown").markItUp(mySettings);
+	   });
+	</script>
+	'
+	;
 
 if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');

@@ -61,7 +61,7 @@ echo '</feed>';
 $_output = ob_get_contents();
 ob_end_clean();
 
-header("content-Type: application/atom+xml");
+header("content-Type: application/atom+xml;charset=utf-8");
 
 echo $_output;
 

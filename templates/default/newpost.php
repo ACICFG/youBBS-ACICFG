@@ -2,8 +2,7 @@
 
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 
-echo '
-<form  action="',$_SERVER["REQUEST_URI"],'" method="post">
+echo '<form  action="',$_SERVER["REQUEST_URI"],'" method="post">
 <input type="hidden" name="formhash" value="',$formhash,'" />
 <div class="title">
     <a href="/">',$options['name'],'</a> &raquo; ';
@@ -36,7 +35,7 @@ echo '
 <input type="text" name="title" value="',htmlspecialchars($p_title),'" class="sll" />
 </p>
 
-<p><textarea   id="id-content" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
+<p><textarea id="markdown" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
 if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');
 }
@@ -46,7 +45,15 @@ echo '
 
 </form>
 
-</div>';
-
+</div>
+<script src="/static/js/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="/static/js/jquery.markitup.js" type="text/javascript"></script>
+<script src="/static/js/set.js" type="text/javascript"></script>
+<script type="text/javascript" >
+   $(document).ready(function() {
+      $("#markdown").markItUp(mySettings);
+   });
+</script>
+';
 
 ?>

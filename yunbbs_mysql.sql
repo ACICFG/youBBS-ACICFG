@@ -54,6 +54,7 @@ CREATE TABLE yunbbs_links (
 
 INSERT INTO yunbbs_links VALUES(null,'YouBBS', 'http://youbbs.sinaapp.com');
 INSERT INTO yunbbs_links VALUES(null,'ACI字幕组', 'http://www.chineseaci.com');
+INSERT INTO yunbbs_links VALUES(null,'YouBBS-ACICFG', 'https://github.com/ACICFG/youBBS-ACICFG');
 
 DROP TABLE IF EXISTS yunbbs_settings;
 CREATE TABLE yunbbs_settings (

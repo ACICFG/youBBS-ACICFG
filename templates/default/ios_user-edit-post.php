@@ -31,7 +31,7 @@ echo '
 <p>
 <input type="text" name="title" value="',$p_title,'" class="sll wb96" />
 </p>
-<p><textarea name="content" class="mll wb96 tall">',$p_content,'</textarea></p>
+<p><textarea id="markdown" name="content" class="mll wb96 tall">',$p_content,'</textarea></p>
 <p><label><input type="checkbox" name="closecomment" value="1" ',$t_obj['closecomment'],'/> 关闭评论</label> 
 <label><input type="checkbox" name="visible" value="1" ',$t_obj['visible'],'/> 显示帖子</label></p>
 <p><input type="submit" value=" 保 存 " name="submit" class="textbtn" /></p>
@@ -43,7 +43,16 @@ echo '
 贴视频： 可直接视频地址栏里的网址，如 http://www.tudou.com/programs/view/PAH86KJNoiQ/ （仅支持土豆/优酷/QQ）<br/>
 </p>
 
-</div>';
+</div>
+<script src="/static/js/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="/static/js/jquery.markitup.js" type="text/javascript"></script>
+<script src="/static/js/set.js" type="text/javascript"></script>
+<script type="text/javascript" >
+   $(document).ready(function() {
+      $("#markdown").markItUp(mySettings);
+   });
+</script>
+';
 
 
 ?>

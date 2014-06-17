@@ -121,7 +121,8 @@ if($is_mobie){
 }
 
 echo '    </p>
-    <p>Powered by <a href="http://youbbs.sinaapp.com/" target="_blank">YouBBS-ACI v',SAESPOT_VER,'</a></p>';
+    <p> <a href="https://github.com/ACICFG/youBBS-ACICFG" target="_blank">YouBBS-ACICFG 1.04.05</a>, proudly served by <a href="http://techteam.acicfg.com/" target="_blank">ACICFG Tech Team</a></p>
+	<p>Powered by <a href="http://youbbs.sinaapp.com/" target="_blank">YouBBS</a></p>';
 if($options['show_debug']){
     $mtime = explode(' ', microtime());
     $totaltime = number_format(($mtime[1] + $mtime[0] - $starttime), 6);

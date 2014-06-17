@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($p_title){
         $p_title = htmlspecialchars($p_title);
         $p_content = htmlspecialchars($p_content);
-        $DBS->unbuffered_query("UPDATE yunbbs_articles SET cid='$p_cid',title='$p_title',content='$p_content',closecomment='$p_closecomment',visible='$p_visible',isred='$p_isred',top='$p_top',isunderline='$p_isunderline' WHERE id='$tid'");
+        $DBS->unbuffered_query("UPDATE yunbbs_articles SET cid='$p_cid',title='$p_title',content='$p_content',closecomment='$p_closecomment',visible='$p_visible',isred='$p_isred',top='$p_top' WHERE id='$tid'");
         if($p_cid != $old_cid){
             $DBS->unbuffered_query("UPDATE yunbbs_categories SET articles=articles+1 WHERE id='$p_cid'");
             $DBS->unbuffered_query("UPDATE yunbbs_categories SET articles=articles-1 WHERE id='$old_cid'");

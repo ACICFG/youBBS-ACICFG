@@ -8,6 +8,10 @@
  */
 define('SAESPOT_VER', '1.04');
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');
+require_once ('Slimdown.php');
+
+include (ROOT . '/include/cc.php');
+
 
 $mtime = explode(' ', microtime());
 $starttime = $mtime[1] + $mtime[0];
@@ -114,7 +118,7 @@ $onlineip = addslashes($onlineip);
 $user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
 if($user_agent){
     $is_spider = preg_match('/(bot|crawl|spider|slurp|sohu-search|lycos|robozilla|google)/i', $user_agent);
-    $is_mobie = preg_match('/(iPod|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP)/i', $user_agent);
+    $is_mobie = preg_match('/(Mobile|iPod|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP)/i', $user_agent);
 
     if($is_mobie){
         // 设置模板前缀
@@ -164,7 +168,7 @@ function showtime($db_time){
 
 // 格式化帖子、回复内容
 function set_content($text,$spider='0'){
-    global $options;
+	global $options;
     // images
     $img_re = '/(http[s]?:\/\/?('.$options['safe_imgdomain'].').+\.(jpg|jpe|jpeg|gif|png))\w*/';
     if(preg_match($img_re, $text)){
@@ -235,9 +239,17 @@ function set_content($text,$spider='0'){
         $text = substr($text, 1);
     }
     
+    
     $text = str_replace("\r\n", '<br/>', $text);
     
+	
+    //Start to render Markdown via Slimdown.
+	// Use this way if necessary, but looks like everything is perfectly fine. --Beining Jun.16.2014
+	//	Slimdown::add_rule ('/(http[s]?:\/\/?('.$options['safe_imgdomain'].').+\.(jpg|jpe|jpeg|gif|png))\w*/', '<img src="'.$options['base_url'].'/static/grey2.gif" data-original="\1" alt="" />');
+	$text = Slimdown::render($text);
+	
     return $text;
+	
 }
 
 // 匹配文本里呼叫某人，为了保险，使用时常在其前后加空格，如 @admin 吧
