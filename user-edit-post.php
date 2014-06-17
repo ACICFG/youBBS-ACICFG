@@ -7,7 +7,9 @@ include(dirname(__FILE__) . '/common.php');
 if (!$cur_user) exit('error: 403 Access Denied');
 
 $tid = intval($_GET['tid']);
-$query = "SELECT id,cid,title,content,closecomment,visible,top FROM yunbbs_articles WHERE id='$tid'";
+$uid = $cur_user['id'];
+
+$query = "SELECT id,cid,uid,title,content,closecomment,visible,top FROM yunbbs_articles WHERE id='$tid' AND uid='$uid'";
 $t_obj = $DBS->fetch_one_array($query);
 if(!$t_obj){
     exit('404');

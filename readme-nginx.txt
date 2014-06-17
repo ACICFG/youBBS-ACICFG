@@ -31,4 +31,4 @@
 	rewrite ^/upload/([0-9]+/)?$ /404.html last;
 	rewrite ^/.*?avatar/(large|normal|mini)/$ /404.html last;
         rewrite ^/user-edit-post-([0-9]+)$ /user-edit-post.php?tid=$1 last;
-        rewrite ^/user-edit-comment-([0-9]+)$ /user-edit-comment.php?tid=$1 last;
+        rewrite ^/user-edit-comment-([0-9]+)$ /user-edit-comment.php?rid=$1 last;

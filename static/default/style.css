@@ -115,7 +115,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 
                 .commonet-count {font-size: 12px;line-height: 12px;font-weight: 500;border-radius: 10px;display: inline-block;background-color: #E0E0E0;color: #808080;padding: 2px 5px 2px 5px;}
                 .comment-text {width: 640px; height: 150px;}
-                .commont-content {WORD-WRAP: break-word;}
+                .commont-content {WORD-WRAP: break-word;padding: 20px;}
                 .commont-content img {display:block;margin-top:10px;max-width:590px;}
                 .commont-content embed {display:block;margin-top:10px;max-width:590px;}
                 .main-box-node .btn a {display:block;padding:4px 8px;font-size:12px;border:1px solid #ECECEC;float:left;margin:0 4px 6px 0;color:#666;background-color:#F9F9F9;white-space: nowrap;border-radius: 4px;}

@@ -8,9 +8,8 @@
  */
 define('SAESPOT_VER', '1.04');
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');
-require_once ('Slimdown.php');
 
-include (ROOT . '/include/cc.php');
+include(dirname(__FILE__) . '/Parsedown.php');
 
 
 $mtime = explode(' ', microtime());
@@ -166,14 +165,18 @@ function showtime($db_time){
     }
 }
 
+
 // 格式化帖子、回复内容
 function set_content($text,$spider='0'){
 	global $options;
+	
+	$base_url = 'http://'.$_SERVER['HTTP_HOST'];
     // images
     $img_re = '/(http[s]?:\/\/?('.$options['safe_imgdomain'].').+\.(jpg|jpe|jpeg|gif|png))\w*/';
     if(preg_match($img_re, $text)){
         if(!$spider){
-            $text = preg_replace($img_re, '<img src="'.$options['base_url'].'/static/grey2.gif" data-original="\1" alt="" />', $text);
+			//Original base_url not passed via $option, use local varible instead
+            $text = preg_replace($img_re, '<img src="'.$base_url.'/static/grey2.gif" data-original="\1" alt="" />', $text);
         }else{
             // 搜索引擎来这样显示 更利于SEO 参见 http://saepy.sinaapp.com/t/81
             $text = preg_replace($img_re, '<img src="\1" alt="" />', $text);
@@ -184,12 +187,11 @@ function set_content($text,$spider='0'){
         // http://t1.qpic.cn/mblogpic/4c7dfb4b2d3c665c4fa4/460
         $qq_img_re = '/(http:\/\/t\d+\.qpic\.cn\/[a-zA-Z0-9]+\/[a-zA-Z0-9]+)\/\d+\w*/';
         if(!$spider){
-            $text = preg_replace($qq_img_re, '<img src="'.$options['base_url'].'/static/grey2.gif" data-original="\1/460" alt="" />', $text);
+            $text = preg_replace($qq_img_re, '<img src="'.$base_url.'/static/grey2.gif" data-original="\1/460" alt="" />', $text);
         }else{
             $text = preg_replace($qq_img_re, '<img src="\1/460" alt="" />', $text);
         }
-    }
-    
+    }    
     // 各大网站的视频地址格式经常变，能识别一些，不能识别了再改。
     // youku
 	if(strpos($text, 'player.youku.com')){
@@ -226,8 +228,10 @@ function set_content($text,$spider='0'){
     }
     // mentions
     if(strpos(' '.$text, '@')){
-        $text = preg_replace('/\B\@([a-zA-Z0-9\x80-\xff]{4,20})/', '@<b><a href="'.$options['base_url'].'/member/\1">\1</a></b>', $text);
+        $text = preg_replace('/\B\@([a-zA-Z0-9\x80-\xff]{4,20})/', '@<b><a href="'.$base_url.'/member/\1">\1</a></b>', $text);
     }
+	//Use Parsedown here.
+	$text = Parsedown::instance()->parse($text);
     // url
     if(strpos(' '.$text, 'http')){
         $text = ' ' . $text;
@@ -238,16 +242,10 @@ function set_content($text,$spider='0'){
         );
         $text = substr($text, 1);
     }
-    
-    
     $text = str_replace("\r\n", '<br/>', $text);
-    
-	
     //Start to render Markdown via Slimdown.
 	// Use this way if necessary, but looks like everything is perfectly fine. --Beining Jun.16.2014
 	//	Slimdown::add_rule ('/(http[s]?:\/\/?('.$options['safe_imgdomain'].').+\.(jpg|jpe|jpeg|gif|png))\w*/', '<img src="'.$options['base_url'].'/static/grey2.gif" data-original="\1" alt="" />');
-	$text = Slimdown::render($text);
-	
     return $text;
 	
 }

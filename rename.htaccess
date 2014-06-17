@@ -1,6 +1,5 @@
 # errordoc
 ErrorDocument 404 /404.html
-
 RewriteEngine On
 RewriteBase /
 RewriteRule ^member/(.+)$ member.php?mid=$1
@@ -36,7 +35,7 @@ RewriteRule ^.*?avatar/$ 404.html
 RewriteRule ^upload/([0-9]+/)?$ 404.html
 RewriteRule ^.*?avatar/(large|normal|mini)/$ 404.html
 rewrite ^/user-edit-post-([0-9]+)$ /user-edit-post.php?tid=$1 last;
-rewrite ^/user-edit-comment-([0-9]+)$ /user-edit-comment.php?tid=$1 last;
+rewrite ^/user-edit-comment-([0-9]+)$ /user-edit-comment.php?rid=$1 last;
 
 #
 AddOutputFilterByType DEFLATE text/html

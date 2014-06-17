@@ -93,7 +93,7 @@ echo '</a></div>
 				if($cur_user && $cur_user['flag']>=99){
     echo ' &nbsp;&nbsp;&nbsp; • <a href="/admin-edit-comment-',$comment['id'],'">编辑</a>';
 }
-if($cur_user && $cur_user['flag']>4 && $cur_user['flag']<99 && $cur_user['name'] == $comment['author']){
+				if($cur_user && $cur_user['flag']>4 && $cur_user['flag']<99 && $cur_user['name'] == $comment['author']){
     echo ' &nbsp;&nbsp;&nbsp; • <a href="/user-edit-comment-',$comment['id'],'">编辑</a>';
 }
                 echo '</div>
