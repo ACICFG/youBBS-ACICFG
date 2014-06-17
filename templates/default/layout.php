@@ -112,7 +112,7 @@ echo '       </div>
 echo '
 <div class="footer-wrap">
     <div class="footer">
-    <p>&copy; Copyright <a href="/">',$options['name'],'</a> • <a href="/feed">Atom Feed</a>';
+    <p>&copy; Copyright <a href="/"><b>',$options['name'],'</b></a> • <a href="/feed"><b>Atom Feed</b></a>';
 if($options['icp']){
     echo ' • <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">',$options['icp'],'</a>';
 }
@@ -121,7 +121,7 @@ if($is_mobie){
 }
 
 echo '    </p>
-    <p> <a href="https://github.com/ACICFG/youBBS-ACICFG" target="_blank">YouBBS-ACICFG 1.04.05</a>, proudly served by <a href="http://techteam.acicfg.com/" target="_blank">ACICFG Tech Team</a></p>
+    <p> <a href="https://github.com/ACICFG/youBBS-ACICFG" target="_blank"><b>YouBBS-ACICFG 1.04.05</b></a>, proudly served by <a href="http://techteam.acicfg.com/" target="_blank"><b>ACICFG Tech Team</b></a></p>
 	<p>Powered by <a href="http://youbbs.sinaapp.com/" target="_blank">YouBBS</a></p>';
 if($options['show_debug']){
     $mtime = explode(' ', microtime());

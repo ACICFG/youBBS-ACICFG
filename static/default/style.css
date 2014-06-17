@@ -137,11 +137,11 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
                 .sider-box-content ul li a {color:#333;}
                 .sider-box-content ul li a:hover {color:#36C;}
 
-.footer-wrap {width:100%;min-width:960px;margin-bottom:20px;color:#999;background-color: #EDEDED;border-top:1px solid #E0E0E0;}
+.footer-wrap {width:100%;min-width:960px;margin-bottom:20px;color:#999;background-color: #fff;border-top:1px solid #E0E0E0;}
     .footer {width:960px;margin:0 auto;padding:20px 0 20px 0;}
     .footer p {margin-bottom:1px;line-height:120%;}
-    .footer p a {color:#606060;font-weight:500;}
-    .footer p a:hover {color:#303030;text-decoration:underline;}
+    .footer p a {font-weight:300;font-size:8px;color: gray;text-decoration: none;}
+    .footer p a:hover {color:#385f8a;text-decoration:none;}
 
 
 /* FORM Copy from babel v2.4.0-RC1 */
