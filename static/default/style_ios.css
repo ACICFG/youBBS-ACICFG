@@ -207,14 +207,6 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 	background-image:url("../images/markdown/list-numeric.png");
 }
 
-
-.markItUp .markItUpButton11 a	{
-	background-image:url("../images/markdown/quotes.png");
-}
-.markItUp .markItUpButton12 a	{
-	background-image:url("../images/markdown/code.png");
-}
-
 .markItUp .save a {
 	background-image:url("../images/markdown/disk-save.png");
 }

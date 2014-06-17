@@ -25,10 +25,10 @@ if(!$is_spider){
 }
 echo '    </a></div>
     <div class="item-content">
-        <h1><a href="/t-',$article['id'],'">',$article['title'],'</a></h1>
-        <span class="item-date"><a href="/n-',$article['cid'],'">',$article['cname'],'</a>  •  <a href="/member/',$article['uid'],'">',$article['author'],'</a>';
+        <span class="item-topic"><h1><a href="/t-',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-date"><a href="/n-',$article['cid'],'">',$article['cname'],'</a>  •  <a href="/member/',$article['uid'],'"><b>',$article['author'],'</a></b>';
 if($article['comments']){
-    echo ' •  ',$article['edittime'],' •  最后回复来自 <a href="/member/',$article['ruid'],'">',$article['rauthor'],'</a>';
+    echo ' •  ',$article['edittime'],' •  最后回复来自 <b><a href="/member/',$article['ruid'],'">',$article['rauthor'],'</a></b>';
 }else{
     echo ' •  ',$article['addtime'];
 }

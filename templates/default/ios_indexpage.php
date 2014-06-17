@@ -21,7 +21,7 @@ echo '
     <img src="/avatar/mini/',$article['uavatar'],'.png" alt="',$article['author'],'" />
     </a></div>
     <div class="item-content count',$article['comments'],'">
-        <h1><a href="/t-',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-topic"><h1><a href="/t-',$article['id'],'">',$article['title'],'</a></h1>
         <span class="item-date"><a href="/n-',$article['cid'],'">',$article['cname'],'</a>';
 if($article['comments']){
     echo ' • <a href="/member/',$article['ruid'],'">',$article['rauthor'],'</a> ',$article['edittime'],'回复';

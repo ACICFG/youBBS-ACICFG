@@ -29,9 +29,6 @@ mySettings = {
 			return markItUp.line+'. ';
 		}},
 		{separator:'---------------'},	
-		{name:'Quotes', openWith:'> '},
-		{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
-		{separator:'---------------'},
         {name:'Save', className:'save', beforeInsert:function(markItUp) { miu.save(markItUp) } },
         {name:'Load', className:'load', beforeInsert:function(markItUp) { miu.load(markItUp) } },
 		{separator:'---------------'},

@@ -1,22 +1,27 @@
 # errordoc
 ErrorDocument 404 /404.html
+
 RewriteEngine On
 RewriteBase /
+RewriteRule ^member/(.+)$ member.php?mid=$1
 RewriteRule ^n-([0-9]+)(-([0-9]*))?$ nodepage.php?cid=$1&page=$3
 RewriteRule ^t-([0-9]+)(-([0-9]*))?$ topicpage.php?tid=$1&page=$3
+RewriteRule ^page/([0-9]+)$ indexpage.php?page=$1
 RewriteRule ^notifications$ notifications.php
 RewriteRule ^favorites$ favorites.php
 RewriteRule ^qqlogin$ qqlogin.php
 RewriteRule ^qqcallback$ qqcallback.php
 RewriteRule ^qqsetname$ qqsetname.php
+RewriteRule ^wblogin$ wblogin.php
+RewriteRule ^wbcallback$ wbcallback.php
+RewriteRule ^wbsetname$ wbsetname.php
 RewriteRule ^feed$ feed.php
-RewriteRule ^robots$ robots.php
-RewriteRule ^forgot$ forgot.php
+RewriteRule ^robots.txt$ robots.php
 RewriteRule ^sitemap-([0-9]+)$ sitemap.php?id=$1
+RewriteRule ^forgot$ forgot.php
 RewriteRule ^upload-(650|590)$ upload.php?mw=$1
 RewriteRule ^viewat-(desktop|mobile)$ viewat.php?via=$1
 RewriteRule ^goto-t-([0-9]+)$ gototopic.php?tid=$1
-RewriteRule ^member/(.+)$ member.php?mid=$1
 RewriteRule ^newpost/([0-9]+)$ newpost.php?cid=$1
 rewrite ^/admin-edit-post-([0-9]+)$ /admin-edit-post.php?tid=$1 last;
 rewrite ^/admin-edit-comment-([0-9]+)$ /admin-edit-comment.php?rid=$1 last;
@@ -30,8 +35,8 @@ rewrite ^/.*?templates /404.html last;
 RewriteRule ^.*?avatar/$ 404.html
 RewriteRule ^upload/([0-9]+/)?$ 404.html
 RewriteRule ^.*?avatar/(large|normal|mini)/$ 404.html
-rewrite ^/user-edit-comment-([0-9]+)$ /user-edit-comment.php?tid=$1 last;
 rewrite ^/user-edit-post-([0-9]+)$ /user-edit-post.php?tid=$1 last;
+rewrite ^/user-edit-comment-([0-9]+)$ /user-edit-comment.php?tid=$1 last;
 
 #
 AddOutputFilterByType DEFLATE text/html

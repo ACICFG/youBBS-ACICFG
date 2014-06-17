@@ -66,6 +66,9 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
             .no-comment {width:646px;padding:10px;background-color:#D0D0D0;margin-bottom:20px;border: 2px dashed #BBB;color:#999;text-align:center;}
             .main-box {width:650px;padding:10px;margin-bottom:20px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);border-bottom: 2px solid #E2E2E9;background: #FFF url("img/bg_item.png") repeat-x bottom center;}
                 .home-box-list {width:670px;padding:10px 0 15px 0;}
+				a:link,a:visited,a:hover,a:active { 
+				color:#999; 
+				text-decoration:none; }
                 .topic-title {margin-bottom:10px;}
                 .topic-title-main {max-width:560px;}
                 .topic-title h1 {margin-bottom:10px;font-size:21px;font-weight: 500;line-height: 150%;color:#333;WORD-WRAP: break-word;}
@@ -204,14 +207,6 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 }
 .markItUp .markItUpButton10 a {
 	background-image:url("../images/markdown/list-numeric.png");
-}
-
-
-.markItUp .markItUpButton11 a	{
-	background-image:url("../images/markdown/quotes.png");
-}
-.markItUp .markItUpButton12 a	{
-	background-image:url("../images/markdown/code.png");
 }
 
 .markItUp .save a {
