@@ -53,7 +53,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
         .banner img{vertical-align: middle;}
         .avatar-mini {max-height:24px;max-width:24px;}
     
-.main-wrap {width:100%;background-color:#CCC;padding:10px 0 1px 0;}
+.main-wrap {width:100%;background-color:#CCC;padding:10px 0 1px 0;background:#CCC url("img/shadow_light.png");padding:20px 0 20px 0;background-color: #e2e2e2;background-repeat: repeat-x;}
     .main {width:100%;margin:0;}
         .main-content {width:100%;}
             .tiptitle {margin:0 auto;width:80%;margin-bottom:10px;border-bottom:2px solid #CCC;padding:10px;color:#CCC;font-size:12px;background-color:#000;border-radius:5px;box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);}
