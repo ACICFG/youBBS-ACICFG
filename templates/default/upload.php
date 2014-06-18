@@ -25,7 +25,7 @@ $("#filetoupload").change(function() {
                 $("#upload-prompt").text(res.msg);
                 var con = document.getElementById("markdown").value;
                 document.getElementsByTagName("textarea")[0].focus();
-                document.getElementById("id-content").value = con + "\n"+res.url+"\n";
+                document.getElementById("markdown").value = con + "\n"+res.url+"\n";
                 document.getElementsByName("filetoupload")[0].value="";
             }else{
                 alert(res.msg);

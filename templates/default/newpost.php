@@ -35,15 +35,7 @@ echo '
 <input type="text" name="title" value="',htmlspecialchars($p_title),'" class="sll" />
 </p>
 
-<p><textarea id="markdown" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>';
-if(!$options['close_upload']){
-    include(dirname(__FILE__) . '/upload.php');
-}
-echo '
-	<p><div class="float-right fs12 grey">支持Ctrl+Enter提交    请尽量让自己的回复能够对别人有帮助</div></p>
-<p><div class="float-left"><input type="submit" value=" 发 表 " id="id-post-submit" name="submit" class="textbtn" /></div><div class="c"></div></p>
-</form>
-</div>
+<p><textarea id="markdown" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>
 <script src="/static/js/jquery-1.6.4.js" type="text/javascript"></script>
 <script src="/static/js/jquery.markitup.js" type="text/javascript"></script>
 <script src="/static/js/set.js" type="text/javascript"></script>
@@ -52,13 +44,23 @@ echo '
       $("#markdown").markItUp(mySettings);
    });
 </script>
+';
+echo '</script>
 <script type="text/javascript" >
 document.getElementById("markdown").addEventListener("keypress",function (e){
   if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
     document.getElementById("id-post-submit").click()
   };
 });
-</script>
+</script>';
+if(!$options['close_upload']){
+    include(dirname(__FILE__) . '/upload.php');
+}
+echo '
+	<p><div class="float-right fs12 grey">支持Ctrl+Enter提交    请尽量让自己的回复能够对别人有帮助</div></p>
+<p><div class="float-left"><input type="submit" value=" 发 表 " id="id-post-submit" name="submit" class="textbtn" /></div><div class="c"></div></p>
+</form>
+</div>
 ';
 
 ?>

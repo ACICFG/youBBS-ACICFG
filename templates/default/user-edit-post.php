@@ -34,6 +34,14 @@ echo '
 <input type="text" name="title" value="',$p_title,'" class="sll" />
 </p>
 <p><textarea id="markdown" name="content" class="mll tall">',$p_content,'</textarea></p>
+</script>
+<script type="text/javascript" >
+document.getElementById("markdown").addEventListener("keypress",function (e){
+  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
+    document.getElementById("id-post-submit").click()
+  };
+});
+</script>
 ';
 
 if(!$options['close_upload']){
@@ -59,14 +67,6 @@ echo '
    $(document).ready(function() {
       $("#markdown").markItUp(mySettings);
    });
-</script>
-<script type="text/javascript" >
-document.getElementById("markdown").addEventListener("keypress",function (e){
-  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
-    document.getElementById("id-post-submit").click()
-  };
-});
-</script>
 ';
 
 
