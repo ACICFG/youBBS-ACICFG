@@ -29,10 +29,16 @@ if(!$options['close_upload']){
 }
 
 echo '
-<p><input type="submit" value=" 保 存 " name="submit" class="textbtn" /></p>
+<p><input type="submit" value=" 保 存 " name="submit" id="id-comment-submit" class="textbtn" /></p>
 </form>
 <a href="/t-',$r_obj['articleid'],'">查看这条评论所在的帖子</a>
-</div>';
-
-
+</div>
+<script type="text/javascript" >
+document.getElementById("markdown").addEventListener("keypress",function (e){
+  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
+    document.getElementById("id-comment-submit").click()
+  };
+});
+</script>
+';
 ?>

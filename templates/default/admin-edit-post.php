@@ -43,7 +43,7 @@ if(!$options['close_upload']){
 }
 
 echo '
-<p><input type="submit" value=" 保 存 " name="submit" class="textbtn" /></p>
+<p><input type="submit" value=" 保 存 " name="submit" id="id-post-submit" class="textbtn" /></p>
 </form>
 <p class="fs12 c666">发帖指南：</p>
 <p class="fs12 c666">
@@ -60,6 +60,13 @@ echo '
    $(document).ready(function() {
       $("#markdown").markItUp(mySettings);
    });
+</script>
+<script type="text/javascript" >
+document.getElementById("markdown").addEventListener("keypress",function (e){
+  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
+    document.getElementById("id-post-submit").click()
+  };
+});
 </script>
 ';
 

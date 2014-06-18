@@ -1,43 +1,46 @@
-<?php
-define('IN_SAESPOT', 1);
+<?php 
+if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 
-include(dirname(__FILE__) . '/config.php');
-include(dirname(__FILE__) . '/common.php');
-$rid = intval($_GET['rid']);
+echo '
+	<script src="/static/js/jquery-1.6.4.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.markitup.js" type="text/javascript"></script>
+	<script src="/static/js/set.js" type="text/javascript"></script>
+	<script type="text/javascript" >
+	   $(document).ready(function() {
+	      $("#markdown").markItUp(mySettings);
+	   });
+	</script>
+<div class="title">
+    <a href="/">',$options['name'],'</a> &raquo; - 修改评论';
+echo '
+</div>
 
-$uid = $cur_user['id']
-if (!$cur_user || $cur_user['flag']<4 ||  $cur_user['name'] == $comment['author']) exit('error: 403 Access Denied');
-
-
-$query = "SELECT id,articleid,content,uid FROM yunbbs_comments WHERE id='$rid' AND uid=$uid";
-$r_obj = $DBS->fetch_one_array($query);
-if(!$r_obj){
-    exit('404');
+<div class="main-box">';
+if($tip){
+    echo '<p class="red">',$tip,'</p>';
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $r_content = addslashes(trim($_POST['content']));
-    
-    if($r_content){
-        $r_content = htmlspecialchars($r_content);
-        $DBS->unbuffered_query("UPDATE yunbbs_comments SET content='$r_content' WHERE id='$rid'");
-        $tip = '评论已成功修改';
-    }else{
-        $tip = '内容 不能留空';
-    }
-}else{
-    $r_content = $r_obj['content'];
-    $tip = '';
+echo '
+<form action="',$_SERVER["REQUEST_URI"],'" method="post">
+<p><textarea id="markdown" name="content" class="comment-text mll">',$r_content,'</textarea></p>';
+
+if(!$options['close_upload']){
+    include(dirname(__FILE__) . '/upload.php');
 }
 
-// 页面变量
-$title = '修改评论';
-// 设置回复图片最大宽度
-$img_max_w = 590;
+echo '
+<p><input type="submit" value=" 保 存 " name="submit" id="id-comment-submit" class="textbtn" /></p>
+</form>
+<a href="/t-',$r_obj['articleid'],'">查看这条评论所在的帖子</a>
+</div>
+<script type="text/javascript" >
+document.getElementById("markdown").addEventListener("keypress",function (e){
+  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
+    document.getElementById("id-comment-submit").click()
+  };
+});
+</script>
+';
 
-
-$pagefile = dirname(__FILE__) . '/templates/default/'.$tpl.'user-edit-comment.php';
-
-include(dirname(__FILE__) . '/templates/default/'.$tpl.'layout.php');
 
 ?>

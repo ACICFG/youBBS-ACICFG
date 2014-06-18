@@ -40,7 +40,7 @@ if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');
 }
 echo '
-<p><div class="float-left"><input type="submit" value=" 发 表 " id="submit"  name="submit" class="textbtn" /></div><div class="c"></div></p>
+<p><div class="float-left"><input type="submit" value=" 发 表 " id="id-post-submit" name="submit" class="textbtn" /></div><div class="c"></div></p>
 
 
 </form>
@@ -53,6 +53,13 @@ echo '
    $(document).ready(function() {
       $("#markdown").markItUp(mySettings);
    });
+</script>
+<script type="text/javascript" >
+document.getElementById("markdown").addEventListener("keypress",function (e){
+  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
+    document.getElementById("id-post-submit").click()
+  };
+});
 </script>
 ';
 

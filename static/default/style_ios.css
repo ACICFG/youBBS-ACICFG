@@ -18,10 +18,8 @@ p {line-height:180%;margin-bottom:20px;}
 html {height: 100%;}
 body {padding: 0px;margin: 0px;font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti !important;background-color: #fff;-webkit-text-size-adjust: none;}
 
-a:link {color: #15C;text-decoration: none;}
-a:active {color: #bd0a01;text-decoration: none;}
-a:visited {color: #15C;text-decoration: none;}
-a:hover {color: #bd0a01;text-decoration: underline;}
+a:link, a:visited, a:active {color: #778087;text-decoration: none;}
+a:hover {color: #4d5256;text-decoration: underline;}
 
 .c { clear:both; }
 .float-left { float:left; }

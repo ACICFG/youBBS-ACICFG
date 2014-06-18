@@ -178,12 +178,19 @@ if(!$options['close_upload']){
 
 echo '
     <p>
-    <div class="float-left"><input type="submit" value=" 提 交 " name="submit" class="textbtn" /></div>
+    <div class="float-left"><input type="submit" value=" 提 交 " id="id-comment-submit" name="submit" class="textbtn" /></div>
     <div class="float-right fs12 grey">请尽量让自己的回复能够对别人有帮助</div>
     <div class="c"></div> 
     </p>
     </form>
 </div>
+<script type="text/javascript" >
+document.getElementById("markdown").addEventListener("keypress",function (e){
+  if (e.keyCode === 10 || (e.ctrlKey && e.keyCode === 13)) {
+    document.getElementById("id-comment-submit").click()
+  };
+});
+</script>
 <!-- new comment end -->';
 
 }else{

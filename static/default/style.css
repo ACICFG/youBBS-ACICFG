@@ -19,10 +19,8 @@ html { overflow-y: scroll; height: 100%;}
 body {background-color:#FFF;-webkit-text-size-adjust: none;height: 100%;}
 p {line-height:180%;margin-bottom:20px;}
 
-a:link {color: #15C;text-decoration: none;}
-a:active {color: #bd0a01;text-decoration: none;}
-a:visited {color: #15C;text-decoration: none;}
-a:hover {color: #bd0a01;text-decoration: underline;}
+a:link, a:visited, a:active {color: #778087;text-decoration: none;}
+a:hover {color: #4d5256;text-decoration: underline;}
 
 .c { clear:both; }
 .float-left { float:left; }
@@ -140,7 +138,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
 .footer-wrap {width:100%;min-width:960px;margin-bottom:20px;color:#999;background-color: #fff;border-top:1px solid #E0E0E0;}
     .footer {width:960px;margin:0 auto;padding:20px 0 20px 0;}
     .footer p {margin-bottom:1px;line-height:120%;}
-    .footer p a {font-weight:300;font-size:8px;color: gray;text-decoration: none;}
+    .footer p a {font-weight:300;font-size:12px;color: gray;text-decoration: none;}
     .footer p a:hover {color:#385f8a;text-decoration:none;}
 
 
