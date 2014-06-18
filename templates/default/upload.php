@@ -23,7 +23,7 @@ $("#filetoupload").change(function() {
         $(this).upload("/upload-',$img_max_w,'", function(res) {
             if(res.status == 200){
                 $("#upload-prompt").text(res.msg);
-                var con = document.getElementById("id-content").value;
+                var con = document.getElementById("markdown").value;
                 document.getElementsByTagName("textarea")[0].focus();
                 document.getElementById("id-content").value = con + "\n"+res.url+"\n";
                 document.getElementsByName("filetoupload")[0].value="";

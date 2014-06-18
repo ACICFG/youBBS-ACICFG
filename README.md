@@ -5,7 +5,7 @@ ver 1.04.05
 
 This is a simple and quick BBS.
 
-Looks like V2EX, but in PHP.
+Yet another V2EX-like forum in PHP.
 
 Smaller than StartBBS(Openshift quick install ver. avalable in my Github:-) ).
 
@@ -25,7 +25,9 @@ We made some improvements:
 
 6. Set post as red.
 
-7. Restrict refresh to prevent CC attack.
+7. Submit with Ctrl + Enter.
+
+8. Modern looking.
 
 And more...
 
@@ -38,8 +40,9 @@ The same as the original one.
 1. Create a new user and database with MySQL. MariaDB would also do.
 2. Edit the .conf file for Nginx, or use the .htaccess for Apache.(Apache version is automatic converted, no gurantee of effect)
 3. Edit the config.php, put in your database information.
-4. Run http://get.your.website.com/install to update the database.
-5. Now you should be able to use the programme. The first register user would automaticly become System Admin.
+4. Feel free to use HHVM, tested in production environment by ACICFG.
+5. Run http://get.your.website.com/install to update the database.
+6. Now you should be able to use the programme. The first register user would automaticly become System Admin.
 
 Special notes to nginx users
 ------------
@@ -51,7 +54,7 @@ Just copy and paste them in the .conf file.
 Name
 ----------
 1.04                 .05
-1.04                 .02
+
 Original ver.        Our update
 
 
@@ -72,5 +75,7 @@ Hope you like it :-)
 
 
 Beining(@cnbeining ), along with @sundaymouse , zhxq
+
 Tech Team of ACICFG
+
 Jun.17.2014
