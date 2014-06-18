@@ -179,7 +179,7 @@ if(!$options['close_upload']){
 echo '
     <p>
     <div class="float-left"><input type="submit" value=" 提 交 " id="id-comment-submit" name="submit" class="textbtn" /></div>
-    <div class="float-right fs12 grey">请尽量让自己的回复能够对别人有帮助</div>
+    <div class="float-right fs12 grey">支持Ctrl+Enter提交    请尽量让自己的回复能够对别人有帮助</div>
     <div class="c"></div> 
     </p>
     </form>

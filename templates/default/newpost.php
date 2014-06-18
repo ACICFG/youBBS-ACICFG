@@ -40,11 +40,9 @@ if(!$options['close_upload']){
     include(dirname(__FILE__) . '/upload.php');
 }
 echo '
+	<p><div class="float-right fs12 grey">支持Ctrl+Enter提交    请尽量让自己的回复能够对别人有帮助</div></p>
 <p><div class="float-left"><input type="submit" value=" 发 表 " id="id-post-submit" name="submit" class="textbtn" /></div><div class="c"></div></p>
-
-
 </form>
-
 </div>
 <script src="/static/js/jquery-1.6.4.js" type="text/javascript"></script>
 <script src="/static/js/jquery.markitup.js" type="text/javascript"></script>

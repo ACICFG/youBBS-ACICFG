@@ -45,6 +45,7 @@ echo '
 </form>
 <p class="fs12 c666">发帖指南：</p>
 <p class="fs12 c666">
+支持Ctrl+Enter提交<br/>
 纯文本格式，不支持html 或 ubb 代码<br/>
 贴图： 可直接粘贴图片地址，如 http://www.baidu.com/xxx.gif （支持jpg/gif/png后缀名），也可直接上传<br/>
 贴视频： 可直接视频地址栏里的网址，如 http://www.tudou.com/programs/view/PAH86KJNoiQ/ （仅支持土豆/优酷/QQ）<br/>

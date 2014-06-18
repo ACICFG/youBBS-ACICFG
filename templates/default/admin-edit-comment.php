@@ -31,6 +31,7 @@ if(!$options['close_upload']){
 echo '
 <p><input type="submit" value=" 保 存 " name="submit" id="id-comment-submit" class="textbtn" /></p>
 </form>
+<div class="float-right fs12 grey">支持Ctrl+Enter提交</div>
 <a href="/t-',$r_obj['articleid'],'">查看这条评论所在的帖子</a>
 </div>
 <script type="text/javascript" >
