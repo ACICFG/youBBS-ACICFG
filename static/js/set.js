@@ -14,8 +14,8 @@ mySettings = {
 	previewParserPath:	'',
 	onShiftEnter:		{keepDefault:false, openWith:'\n\n'},
 	markupSet: [
-		{name:'First Level Heading', key:'1', openWith:'#', placeHolder:'请输入标题...', },
-		{name:'Second Level Heading', key:'2', openWith:'##', placeHolder:'请输入标题...', },
+		{name:'First Level Heading', key:'1', placeHolder:'请输入标题...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
+		{name:'Second Level Heading', key:'2', placeHolder:'请输入标题...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '-') } },
 		{name:'Heading 3', key:'3', openWith:'### ', placeHolder:'请输入标题...' },
 		{name:'Heading 4', key:'4', openWith:'#### ', placeHolder:'请输入标题...' },
 		{name:'Heading 5', key:'5', openWith:'##### ', placeHolder:'请输入标题...' },
