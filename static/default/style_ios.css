@@ -42,7 +42,7 @@ img.avatar {-moz-border-radius: 4px;border-radius: 4px;}
     .header {width:100%;margin:0 auto;color:#666;vertical-align: middle;font-size: 15px;line-height:19px;font-weight: 500;}
     .header a {color:#CCC;text-decoration:none;}
     .header a:hover {color:#FFF;text-decoration:none;}
-        .logo {margin-left:6px;display:block;float:left;font-size:36px;line-height:40px;font-family:Arial, "宋体",Helvetica, sans-serif;}
+        .logo {margin-left:6px;display:block;float:left;font-size:36px;line-height:40px;font-family:Arial, "微软雅黑",Helvetica, sans-serif;}
         .logo a {text-decoration: none;color: #ccc;text-shadow: #000 0 0 20px;-webkit-transition: color 0.25s linear;}
         .logo a:hover,
         .logo a:focus,
