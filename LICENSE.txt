@@ -1,7 +1,7 @@
-Copyright (c) 2011 ego008 
+Copyright (c) 2012~2014 ACICFG Tech Team
 
-https://github.com/ego008/saepy-log
-http://code.google.com/p/sae-python-tornado-blog/
+https://github.com/ACICFG/youBBS-ACICFG/
+https://forum.chineseaci.com/
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
