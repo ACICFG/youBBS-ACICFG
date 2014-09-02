@@ -36,9 +36,9 @@ MIT LICENSE-->
             document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
             var link_this = 'link_this';
             link_this = JSON.parse(xhr.responseText).data.link;
-            var con = window.parent.document.getElementById("id-content").value; //The data in original textbox
+            var con = window.parent.document.getElementById("markdown").value; //The data in original textbox
             window.parent.document.getElementsByTagName("textarea")[0].focus();
-            window.parent.document.getElementById("id-content").value = con + "\n"+link_this.replace("http://","https://")+"\n";
+            window.parent.document.getElementById("markdown").value = con + "\n"+link_this.replace("http://","https://")+"\n";
             document.write("上传好了,<br><a href='/imageupload.html'>再传一张</a>");
             document.body.className = "uploaded";
             setTimeout("window.location.reload();",2000); 
@@ -49,7 +49,7 @@ MIT LICENSE-->
         }
         }
         
-        xhr.setRequestHeader('Authorization', 'Client-ID '); 
+        xhr.setRequestHeader('Authorization', 'Client-ID ###############'); //Please put your ID here
         
         xhr.send(fd);
     }
