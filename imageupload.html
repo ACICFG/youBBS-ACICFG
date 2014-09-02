@@ -1,0 +1,70 @@
+
+<!--
+UPLOADER UPLOADER AUTHOR: 
+@paulrouget <paul@mozilla.com>
+@sundaymouse 
+@Beining
+
+LICENSE:
+MIT LICENSE-->
+
+
+
+
+<meta charset="utf8">
+
+<div>图片拖放上传<button onclick="document.querySelector('input').click()">或点击</button></div>
+<input style="visibility: collapse; width: 0px;" type="file" onchange="upload(this.files[0])">
+
+<script>
+
+    window.ondragover = function(e) {e.preventDefault()}
+    window.ondrop = function(e) {e.preventDefault(); upload(e.dataTransfer.files[0]); }
+    function upload(file) {
+
+        if (!file || !file.type.match(/image.*/)) return;
+
+        document.body.className = "uploading";
+
+        var fd = new FormData(); 
+        fd.append("image", file); 
+        var xhr = new XMLHttpRequest(); 
+        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+        xhr.onload = function() {
+            // Big win!
+            if (JSON.parse(xhr.responseText).status == '200'){ //If success
+            document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
+            var link_this = 'link_this';
+            link_this = JSON.parse(xhr.responseText).data.link;
+            var con = window.parent.document.getElementById("id-content").value; //The data in original textbox
+            window.parent.document.getElementsByTagName("textarea")[0].focus();
+            window.parent.document.getElementById("id-content").value = con + "\n"+link_this.replace("http://","https://")+"\n";
+            document.write("上传好了,<br><a href='/imageupload.html'>再传一张</a>");
+            document.body.className = "uploaded";
+            setTimeout("window.location.reload();",2000); 
+        }
+        else{
+            document.write("上传不成功,请检查图片是不是有问题...<br><a href='/imageupload.html'>换一张？</a>");
+            setTimeout("window.location.reload();",5000); 
+        }
+        }
+        
+        xhr.setRequestHeader('Authorization', 'Client-ID '); 
+        
+        xhr.send(fd);
+    }
+</script>
+<style>
+    body {text-align: center; padding-top: 0px;}
+    div { border: 2px solid black; text-align: center; line-height: 20px; width: 90px; margin: auto; font-size: 14px; display: inline-block;}
+    #link, p , div {display: none}
+    div {display: inline-block;}
+    .uploading div {display: none}
+    .uploaded div {display: none}
+    .uploading p {display: inline}
+    .uploaded #link {display: inline}
+</style>
+
+<p>安全上传中...</p>
+<a id="link"></a>
+

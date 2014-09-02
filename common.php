@@ -175,8 +175,7 @@ function set_content($text,$spider='0'){
     $img_re = '/(http[s]?:\/\/?('.$options['safe_imgdomain'].').+\.(jpg|jpe|jpeg|gif|png))\w*/';
     if(preg_match($img_re, $text)){
         if(!$spider){
-			//Original base_url not passed via $option, use local varible instead
-            $text = preg_replace($img_re, '<img src="'.$base_url.'/static/grey2.gif" data-original="\1" alt="" />', $text);
+            $text = preg_replace($img_re, '<script type="text/javascript">showImg("\1");</script>', $text);
         }else{
             // 搜索引擎来这样显示 更利于SEO 参见 http://saepy.sinaapp.com/t/81
             $text = preg_replace($img_re, '<img src="\1" alt="" />', $text);

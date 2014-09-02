@@ -45,7 +45,7 @@ document.getElementById("markdown").addEventListener("keypress",function (e){
 ';
 
 if(!$options['close_upload']){
-    include(dirname(__FILE__) . '/upload.php');
+    echo '<iframe name="imageupload" height="100px" width="350px" src="/imageupload.html" frameborder="0"></iframe>';
 }
 
 echo '

@@ -40,6 +40,25 @@ if($cur_user && $cur_user['flag']>4){
     }
 }
 
+echo '</script>
+<script type="text/javascript" >
+function trim(str){ //删除左右两端的空格
+     return str.replace(/(^\s*)|(\s*$)/g, "");
+ };
+
+ function showImg(url) {
+     var imgid = trim(Math.random().toString(10));
+     var frameid = trim(\'frameimg\' + imgid);
+     var window_id = trim(\'img\'+imgid);
+     fake_url=String(trim(url+\'?\'+Math.random()));
+     var target_width = trim(document.getElementById(\'topic-content\').clientWidth.toString(10));
+     //Screw you IE6
+     window[window_id] = trim(\'<img id="\'+window_id+\'" src="\'+fake_url+\'" width=\'+target_width+\' height="100%"  /><script>window.onload = function(){parent.document.getElementById("\'+frameid+\'").width = "\'+target_width+\'px" ;var img_width = document.getElementById("\'+window_id+\'").naturalWidth;var img_height = document.getElementById("\'+window_id+\'").naturalHeight;var asp_r = img_width/img_height;var target_width = window.parent.document.getElementById("topic-content").clientWidth;var scaler = img_width/target_width;var target_height = img_width/asp_r/scaler;parent.document.getElementById("\'+frameid+\'").height =target_height;} <\'+\'/script>\');
+     var line = trim(\'<iframe class="img-window" id="\'+frameid+\'" src=javascript:parent["\'+window_id+\'"] frameBorder="0" scrolling="no" width="100%" fake_url="\'+fake_url+\'" /></iframe>\');
+     document.write(String(line));
+}
+</script>';
+
 
 echo '        </div>
     </div>
@@ -52,7 +71,7 @@ if($is_spider){
 echo '    </a></div>
     <div class="c"></div>
 </div>
-<div class="topic-content">
+<div class="topic-content" id="topic-content">
 ',$options['ad_post_top'],'
 <p>';     
 echo $t_obj['content'];
@@ -173,7 +192,7 @@ echo '    <form action="',$_SERVER["REQUEST_URI"],'#new-comment" method="post">
 	;
 
 if(!$options['close_upload']){
-    include(dirname(__FILE__) . '/upload.php');
+    echo '<iframe name="imageupload" height="100px" width="350px" src="/imageupload.html" frameborder="0"></iframe>';
 }
 
 echo '
