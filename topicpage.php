@@ -4,6 +4,12 @@ define('IN_SAESPOT', 1);
 include(dirname(__FILE__) . '/config.php');
 include(dirname(__FILE__) . '/common.php');
 
+if (!$cur_user) exit('error: 401 login please');
+if ($cur_user['flag']==0){
+    exit('error: 403 Access Denied');
+}else if($cur_user['flag']==1){
+    exit('error: 401 Access Denied');
+}
 
 $tid = intval($_GET['tid']);
 // 评论页数，默认是1
